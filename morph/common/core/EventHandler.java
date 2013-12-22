@@ -620,7 +620,10 @@ public class EventHandler
 			}
 			if(Morph.forceWitherKill == 1 && event.entityLiving instanceof EntityWither)
 			{
-				
+				EntityPlayerMP player = (EntityPlayerMP)event.source.getEntity();
+
+				SessionState.allowFlight = true;
+				Morph.proxy.tickHandlerServer.saveData.setBoolean("killedWither", true);
 			}
 		}
 	}
